@@ -10,3 +10,4 @@ This is a practice of a server setup for a frintend client code. THe user is abl
 3. cd Server
 4. node index.js
 5. use these links -http://localhost:4000/weather/cold -http://localhost:4000/weather/hot 
+6. Or after server is running, open your index.html in browser and continue with buttons available

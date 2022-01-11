@@ -9,14 +9,14 @@
     />
   </head>
   <body class="container">
-    <h1>Friends</h1>
+    <h1>Friends + Weather</h1>
     <ul id="people" class=""></ul>
-    <ul id="weather" class=""></ul>
-    <ul id="temperature" class=""></ul>
+    <ul id="weatherCold" class=""></ul>
+    <ul id="weatherHot" class=""></ul>
 
     <button id="button">GET Friends List</button>
-    <button id="button2">GET Weather List</button>
-    <button id="button3">GET Temperature List</button>
+    <button id="button2">GET Cold Weather</button>
+    <button id="button3">GET Hot Weather</button>
 
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -39,17 +39,32 @@
           });
       };
 
-      // Get Weather
+      // Get Cold Weather
       document.getElementById("button2").onclick = function () {
         axios
           .get("http://localhost:4000/weather/cold")
           .then(function (response) {
             const data = response.data;
-            document.getElementById("weather").innerHTML = data
+            document.getElementById("weatherCold").innerHTML = data
                 return '<li class="row">' ;
           })
           .catch(function (err) {
-            document.getElementById("weather").innerHTML =
+            document.getElementById("weatherCold").innerHTML =
+              '<li class="text-danger">' + err.message + "</li>";
+          });
+      };
+
+        // Get Hot Weather
+        document.getElementById("button3").onclick = function () {
+        axios
+          .get("http://localhost:4000/weather/hot")
+          .then(function (response) {
+            const data = response.data;
+            document.getElementById("weatherHot").innerHTML = data
+                return '<li class="row">' ;
+          })
+          .catch(function (err) {
+            document.getElementById("weatherHot").innerHTML =
               '<li class="text-danger">' + err.message + "</li>";
           });
       };
